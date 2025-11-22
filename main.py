@@ -1,3 +1,5 @@
+# texty a jmena
+
 TEXTS = [
 '''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
@@ -32,11 +34,33 @@ uzivatele_hesla = ["123", "pass123", "password123", "pass123"]
 zadane_jmeno = input("Zadejte uživatelské jméno: ").strip()
 zadane_heslo = input("Zadejte heslo: ").strip()
 
+
+
+# analyza
+
+def rozdel_text_na_slova(text):
+    slova = text.split()
+    print(len(slova))
+    return slova
+
+
+
+# prihlaseni
+
 souhlasiJmeno = False
 
 def potvzeni():
     if souhlasiJmeno == True:
         print("Vítejte.")
+        vstup = input("Zadejte číslo textu k analýze: ").strip()
+        try:
+            cislo_textu = int(vstup)
+            if len(TEXTS) < cislo_textu - 1 | len(TEXTS) > cislo_textu - 1:
+                print("Neplatný vstup. Ukončuji program.")
+                exit()
+            rozdel_text_na_slova (TEXTS[cislo_textu - 1])
+        except: ValueError
+
     if souhlasiJmeno == False:
         print("Nope.")
         exit()
@@ -48,6 +72,6 @@ for i, polozka in enumerate(uzivatele_jmena):
             break
 potvzeni()
 
-print("hhhhhh")
+
 
 
